@@ -1,9 +1,9 @@
 export interface AppSettings {
-  industry: string[]
-  tone: string[]
+  industries: string[]
+  tones: string[]
 }
 
 export const appSettings: AppSettings = {
-  industry: ['tech', 'finance', 'health'],
-  tone: ['formal', 'casual', 'conversational'],
+  industries: ['tech', 'finance', 'health'],
+  tones: ['formal', 'casual', 'conversational'],
 }
