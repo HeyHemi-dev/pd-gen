@@ -1,8 +1,10 @@
 export default function Page({ children }: { children: React.ReactNode }) {
   return (
-    <div className="page">
+    <div id="page" className="grid grid-rows-[auto_1fr_auto] min-h-svh">
       <header></header>
-      <main className="content">{children}</main>
+      <main id="content" className="grid">
+        {children}
+      </main>
       <footer></footer>
     </div>
   )

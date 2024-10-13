@@ -25,26 +25,24 @@ export const loader = async () => {
 export default function Admin() {
   const { industries } = useLoaderData<typeof loader>()
   return (
-    <>
-      <Page>
-        <Section>
-          <h1>Admin Panel</h1>
-          <ul className="flex flex-col gap-2">
-            {industries.map((industry, index) => (
-              <li key={index}>
-                <Card>
-                  <div className="flex p-2 gap-2">
-                    <p className="flex-grow">{industry}</p>
-                    <Button variant="link">Edit</Button>
-                    <Button variant="link">Delete</Button>
-                  </div>
-                </Card>
-              </li>
-            ))}
-          </ul>
-          <AddIndustry />
-        </Section>
-      </Page>
-    </>
+    <Page>
+      <Section>
+        <h1>Admin Panel</h1>
+        <ul className="flex flex-col gap-2">
+          {industries.map((industry, index) => (
+            <li key={index}>
+              <Card>
+                <div className="flex p-2 gap-2">
+                  <p className="flex-grow">{industry}</p>
+                  <Button variant="link">Edit</Button>
+                  <Button variant="link">Delete</Button>
+                </div>
+              </Card>
+            </li>
+          ))}
+        </ul>
+        <AddIndustry />
+      </Section>
+    </Page>
   )
 }
