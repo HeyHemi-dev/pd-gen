@@ -24,10 +24,14 @@ export default function Index() {
   return (
     <Page>
       <Section>
-        <h1>Free Position Description Generator</h1>
-        <div className="grid grid-cols-[1fr_2fr] gap-4">
-          <PdForm />
-          <PdDocument data={pdDocumentData} />
+        <div className="grid gap-4 grid-rows-[auto_1fr]">
+          <h1>Free Position Description Generator</h1>
+          <div className="grid grid-cols-[1fr_2fr] gap-4 grid-rows-[auto_1fr]">
+            <PdForm />
+            <div className="row-span-full col-start-2 grid">
+              <PdDocument data={pdDocumentData} />
+            </div>
+          </div>
         </div>
       </Section>
     </Page>

@@ -11,37 +11,57 @@ import {
 } from '~/components/ui/dialog'
 import { Label } from '~/components/ui/label'
 import { Input } from '~/components/ui/input'
+import { Form } from '@remix-run/react'
 
 export default function AddIndustry() {
   return (
     <Dialog>
-      <DialogTrigger>
-        <Button variant="secondary">Add</Button>
+      <DialogTrigger asChild>
+        <Button variant="default" className="justify-self-start">
+          Add
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle>Add Industry</DialogTitle>
-          <DialogDescription>Create a new industry option</DialogDescription>
-        </DialogHeader>
-        <div className="flex items-center space-x-2">
-          <div className="grid flex-1 gap-2">
-            <Label htmlFor="industry" className="sr-only">
-              Industry
+        <Form method="post" className="grid gap-y-4">
+          <DialogHeader>
+            <DialogTitle>Add Industry</DialogTitle>
+            <DialogDescription>Create a new industry option</DialogDescription>
+          </DialogHeader>
+          <div className="grid gap-2">
+            <Label htmlFor="optionName" className="sr-only">
+              Industry Name
             </Label>
-            <Input id="industry" placeholder="tech" />
+            <Input
+              id="optionName"
+              type="text"
+              name="optionName"
+              placeholder="tech"
+            />
+            <input type="hidden" name="optionType" value="industry"></input>
           </div>
-        </div>
-        <DialogFooter className="justify-end">
-          <Button type="button" variant="default">
-            Add
-          </Button>
-          <DialogClose asChild>
-            <Button type="button" variant="ghost">
-              Cancel
+          <DialogFooter className="justify-end">
+            <Button
+              type="submit"
+              variant="default"
+              name="intent"
+              value="ADD-OPTION"
+            >
+              Add
             </Button>
-          </DialogClose>
-        </DialogFooter>
+            <DialogClose asChild>
+              <Button type="button" variant="ghost">
+                Cancel
+              </Button>
+            </DialogClose>
+          </DialogFooter>
+        </Form>
       </DialogContent>
     </Dialog>
   )
+}
+
+export interface AddOption {
+  optionName: string
+  optionType: string
+  intent: string
 }

@@ -23,6 +23,19 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        ta: {
+          DEFAULT: 'hsl(var(--ta-white))',
+          p: 'hsla(var(--ta-p))',
+          darkblue: 'hsl(var(--ta-dark-blue))',
+          darkyellow: 'hsl(var(--ta-dark-yellow))',
+          textblue: 'hsl(var(--ta-text-blue))',
+          yellow: 'hsl(var(--ta-yellow))',
+          orange: 'hsl(var(--ta-orange))',
+          shadows: 'hsla(var(--ta-shadows))',
+          cannari: 'hsl(var(--ta-cannari))',
+          grey: 'hsl(var(--ta-grey))',
+          blue: 'hsl(var(--ta-blue))',
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
