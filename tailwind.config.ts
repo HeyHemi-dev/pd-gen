@@ -16,6 +16,7 @@ export default {
           'Segoe UI Symbol',
           'Noto Color Emoji',
         ],
+        heading: ['Clashdisplay', 'sans-serif'],
       },
       borderRadius: {
         lg: 'var(--radius)',
