@@ -1,16 +1,20 @@
 import OpenAI from 'openai'
-import { pdFormData } from '~/components/pdForm'
+import { PdFormFields } from '~/components/pdForm'
+import { promptSystem, promptUser } from '~/data'
 const openai = new OpenAI()
 
-export async function pdCompletion(formData) {
+export async function pdCompletion(payload: unknown) {
   try {
+    //console.log({ payload })
+    const details = payload as PdFormFields
+
     const completion = await openai.chat.completions.create({
       model: 'gpt-4o-mini',
       messages: [
-        { role: 'system', content: 'You are a helpful assistant.' },
+        { role: 'system', content: `${promptSystem.content}` },
         {
           role: 'user',
-          content: 'Write a haiku about recursion in programming.',
+          content: `${promptUser.content} Details: ${JSON.stringify(details)}`,
         },
       ],
     })

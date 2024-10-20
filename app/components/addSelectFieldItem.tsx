@@ -1,4 +1,4 @@
-import { Button } from '~/components/ui/button'
+import { Button } from '~/components/ui/ta-button'
 import {
   Dialog,
   DialogTrigger,
@@ -12,8 +12,13 @@ import {
 import { Label } from '~/components/ui/label'
 import { Input } from '~/components/ui/input'
 import { Form } from '@remix-run/react'
+import { SelectField } from '~/data'
 
-export default function AddIndustry() {
+export default function AddSelectItem({
+  selectField,
+}: {
+  selectField: SelectField
+}) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -24,18 +29,22 @@ export default function AddIndustry() {
       <DialogContent className="sm:max-w-md">
         <Form method="post" className="grid gap-y-4">
           <DialogHeader>
-            <DialogTitle>Add Industry</DialogTitle>
-            <DialogDescription>Create a new industry option</DialogDescription>
+            <DialogTitle className="capitalise">
+              Add {selectField.name}
+            </DialogTitle>
+            <DialogDescription>
+              Create a new {selectField.name} option
+            </DialogDescription>
           </DialogHeader>
           <div className="grid gap-2">
-            <Label htmlFor="optionName" className="sr-only">
-              Industry Name
+            <Label htmlFor="optionName" className="sr-only capitalise">
+              {selectField.name} name
             </Label>
             <Input
               id="optionName"
               type="text"
               name="optionName"
-              placeholder="tech"
+              placeholder={selectField.example}
             />
             <input type="hidden" name="optionType" value="industry"></input>
           </div>
@@ -45,11 +54,12 @@ export default function AddIndustry() {
               variant="default"
               name="intent"
               value="ADD-OPTION"
+              className="capitalise"
             >
               Add
             </Button>
             <DialogClose asChild>
-              <Button type="button" variant="ghost">
+              <Button type="button" variant="ghost" className="capitalise">
                 Cancel
               </Button>
             </DialogClose>
